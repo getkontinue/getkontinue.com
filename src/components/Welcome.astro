@@ -13,8 +13,6 @@ import { Badge } from "@/components/ui/badge";
 import {
   Github,
   Twitter,
-  MessageCircle,
-  CheckCircle,
   Link,
   Tags,
   UserPlus,
@@ -129,7 +127,12 @@ import MobileDetail from "../assets/mobile_detail.png";
       </p>
 
       {/* Email Signup */}
-      <form method="POST" action="signup">
+      <form
+        method="POST"
+        action={import.meta.env.DEV
+          ? "signup"
+          : "https://waitlist.getkontinue.com"}
+      >
         <div
           class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto mb-8"
         >
@@ -570,7 +573,7 @@ import MobileDetail from "../assets/mobile_detail.png";
           <div
             class="w-16 h-16 bg-emerald-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-emerald-500/30 transition-colors duration-300 card-organic"
           >
-            <Target className="w-8 h-8 text-emerald-300" />
+            <Target className="w-8 h-8 text-emerald-400" />
           </div>
           <h3 class="font-semibold text-xl mb-4">Own Your Data</h3>
           <p class="text-stone-200 leading-relaxed">
@@ -583,7 +586,7 @@ import MobileDetail from "../assets/mobile_detail.png";
           <div
             class="w-16 h-16 bg-emerald-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-emerald-500/30 transition-colors duration-300 card-organic"
           >
-            <Layers class="w-8 h-8 text-amber-300" />
+            <Layers className="w-8 h-8 text-emerald-400" />
           </div>
           <h3 class="font-semibold text-xl mb-4">No Vendor Lock-in</h3>
           <p class="text-slate-300 leading-relaxed">
@@ -596,7 +599,7 @@ import MobileDetail from "../assets/mobile_detail.png";
           <div
             class="w-16 h-16 bg-green-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-500/30 transition-colors duration-300 card-organic"
           >
-            <Code className="w-8 h-8 text-green-300" />
+            <Code className="w-8 h-8 text-emerald-400" />
           </div>
           <h3 class="font-semibold text-xl mb-4">Community Driven</h3>
           <p class="text-stone-200 leading-relaxed">
@@ -625,7 +628,12 @@ import MobileDetail from "../assets/mobile_detail.png";
         open-source personal information management.
       </p>
 
-      <form method="POST" action="signup">
+      <form
+        method="POST"
+        action={import.meta.env.DEV
+          ? "signup"
+          : "https://waitlist.getkontinue.com"}
+      >
         <div
           class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto mb-8"
         >

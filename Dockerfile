@@ -29,6 +29,7 @@ RUN addgroup --system --gid 1001 astro && \
     adduser --system --uid 1001 astro
 
 # Copy built application
+COPY --from=builder --chown=astro:astro /app/node_modules ./node_modules
 COPY --from=builder --chown=astro:astro /app/dist ./dist
 
 # Switch to non-root user
