@@ -1,210 +1,728 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+
+import {
+  Github,
+  Twitter,
+  MessageCircle,
+  CheckCircle,
+  Link,
+  Tags,
+  UserPlus,
+  Smartphone,
+  Monitor,
+  Wifi,
+  WifiOff,
+  CloudCheck,
+  ArrowRight,
+  Calendar,
+  Clock,
+  Layers,
+  Target,
+  Zap,
+  Code,
+} from "lucide-react";
+import { Image } from "astro:assets";
+
+import Logo from "../assets/logo/white_alpha/512.png";
+import DesktopNote from "../assets/desktop_note.png";
+import DesktopDetail from "../assets/desktop_detail.png";
+import MobileList from "../assets/mobile_list.png";
+import MobileNote from "../assets/mobile_note.png";
+import MobileDetail from "../assets/mobile_detail.png";
 ---
 
-<div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
-	<main>
-		<section id="hero">
-			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
-			>
-			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
-			</h1>
-			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
-				<a href="https://astro.build/chat"
-					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
-						><path
-							fill="currentColor"
-							d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-						></path></svg
-					>
-				</a>
-			</section>
-		</section>
-	</main>
+<div
+  class="min-h-screen bg-gradient-to-br from-stone-50 via-amber-50/30 to-orange-50/20 dark:from-stone-950 dark:via-amber-950/50 dark:to-orange-950/30"
+  style='background-image: url(&apos;data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23f5f5f4" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="1.5"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&apos;)'
+>
+  {/* Header */}
+  <header
+    class="sticky top-0 z-50 w-full border-b border-stone-200/60 dark:border-amber-800/30 bg-stone-50/90 dark:bg-stone-950/90 backdrop-blur-md shadow-sm"
+  >
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div
+          class="w-10 h-10 bg-gradient-to-br from-stone-900 to-stone-700 rounded-xl flex items-center justify-center shadow-lg shadow-green-900/20"
+        >
+          <Image src={Logo} alt="Logo" />
+        </div>
+        <span
+          class="font-bold text-2xl bg-gradient-to-r from-stone-900 to-amber-900 dark:from-stone-100 dark:to-amber-100 bg-clip-text text-transparent"
+          >Kontinue</span
+        >
+      </div>
+      <nav class="hidden md:flex items-center space-x-6">
+        <a
+          href="https://github.com/getkontinue/kontinue"
+          target="_blank"
+          rel="noopener"
+        >
+          <Button
+            variant="outline"
+            size="sm"
+            className="border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
+          >
+            <Github className="w-4 h-4 mr-2" />
+            View on GitHub
+          </Button>
+        </a>
+      </nav>
+    </div>
+  </header>
 
-	<a href="https://astro.build/blog/astro-5/" id="news" class="box">
-		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-				fill="#111827"></path></svg
-		>
-		<h2>What's New in Astro 5.0?</h2>
-		<p>
-			From content layers to server islands, click to learn more about the new features and
-			improvements in Astro 5.0
-		</p>
-	</a>
+  {/* Hero Section */}
+  <section class="pt-16 pb-20 px-6 relative overflow-hidden">
+    <div
+      class="absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05] bg-[size:75px_75px]"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6"
+      aria-hidden="true"
+    >
+      <div
+        class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20"
+        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+      >
+      </div>
+    </div>
+
+    <div class="container mx-auto text-center max-w-4xl relative">
+      <Badge
+        variant="secondary"
+        className="mb-8 px-4 py-2 bg-green-50 text-green-800 border-green-200 dark:bg-green-950/50 dark:text-green-200 dark:border-green-800/50 shadow-sm"
+      >
+        <Zap className="w-4 h-4 mr-2" />
+        Open Source & Cross-Platform
+      </Badge>
+
+      <h1
+        class="font-bold text-5xl md:text-7xl lg:text-8xl bg-gradient-to-r from-stone-900 via-amber-900 to-stone-900 dark:from-stone-100 dark:via-amber-100 dark:to-stone-100 bg-clip-text text-transparent mb-8 leading-tight tracking-tight"
+      >
+        Your Personal
+        <span
+          class="block text-transparent bg-gradient-to-r from-emerald-700 to-green-800 bg-clip-text"
+          >Information Hub</span
+        >
+      </h1>
+
+      <p
+        class="text-xl md:text-2xl text-stone-700 dark:text-stone-300 mb-12 leading-relaxed max-w-3xl mx-auto"
+      >
+        The open-source note-taking and information management app that works
+        everywhere you do.
+        <span class="font-semibold text-stone-900 dark:text-stone-100"
+          >Cross-platform sync, offline-first,</span
+        >
+        and completely under your control.
+      </p>
+
+      {/* Email Signup */}
+      <form method="POST" action="signup">
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto mb-8"
+        >
+          <Input
+            name="email"
+            type="email"
+            placeholder="Enter your email"
+            className="flex-1 h-12 bg-white dark:bg-slate-950 border-slate-300 dark:border-slate-700 shadow-sm"
+          />
+          <Button
+            type="submit"
+            size="lg"
+            className="w-full sm:w-auto h-12 bg-gradient-to-r from-emerald-700 to-green-800 hover:from-emerald-600 hover:to-green-700 shadow-lg"
+          >
+            Join the waitlist
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+        </div>
+      </form>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a
+          href="https://github.com/getkontinue/kontinue"
+          target="_blank"
+          rel="noopener"
+        >
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
+          >
+            <Github className="w-5 h-5 mr-2" />
+            Star on GitHub
+          </Button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* Cross-Platform Section */}
+  <section
+    class="py-20 px-6 bg-stone-100/50 dark:bg-stone-900/50 paper-texture"
+  >
+    <div class="container mx-auto max-w-7xl">
+      <div class="text-center mb-16">
+        <Badge
+          variant="outline"
+          className="mb-4 border-blue-200 text-blue-700 dark:border-blue-800 dark:text-blue-300"
+        >
+          Cross-Platform
+        </Badge>
+        <h2
+          class="font-bold text-4xl md:text-5xl text-slate-900 dark:text-white mb-6"
+        >
+          Your knowledge, everywhere you are
+        </h2>
+        <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+          Native apps for desktop and mobile, with seamless synchronization that
+          works online or offline.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div class="space-y-8">
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-12 h-12 bg-violet-50 dark:bg-violet-950 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <Smartphone
+                className="w-6 h-6 text-violet-600 dark:text-violet-400"
+              />
+            </div>
+            <div>
+              <h3
+                class="font-semibold text-xl text-slate-900 dark:text-white mb-2"
+              >
+                Mobile First
+              </h3>
+              <p class="text-slate-600 dark:text-slate-300 text-lg">
+                Optimized mobile apps for iOS and Android with touch-first
+                design and quick note capture on the go.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-12 h-12 bg-blue-50 dark:bg-blue-950 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <Monitor className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            </div>
+            <div>
+              <h3
+                class="font-semibold text-xl text-slate-900 dark:text-white mb-2"
+              >
+                Web Ready
+              </h3>
+              <p class="text-slate-600 dark:text-slate-300 text-lg">
+                Web-based application for Windows, macOS, and Linux with rich
+                text editing and full feature parity.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-12 h-12 bg-emerald-50 dark:bg-emerald-950 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <CloudCheck
+                className="w-6 h-6 text-emerald-600 dark:text-emerald-400"
+              />
+            </div>
+            <div>
+              <h3
+                class="font-semibold text-xl text-slate-900 dark:text-white mb-2"
+              >
+                Perfect Sync
+              </h3>
+              <p class="text-slate-600 dark:text-slate-300 text-lg">
+                Real-time synchronization across all devices with conflict
+                resolution and change tracking.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div
+            class="bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-8 shadow-2xl"
+          >
+            <div class="text-center text-slate-600 dark:text-slate-400">
+              <Image
+                src={DesktopNote}
+                alt="App Screenshot"
+                class="mx-auto rounded-xl"
+              />
+            </div>
+            <div
+              class="mt-4 text-sm text-slate-500 dark:text-slate-500 text-center"
+            >
+              Interfaces designed for productivity
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto max-w-6xl">
+      <div class="grid lg:grid-cols-3 gap-12 items-center mb-12">
+        <Image
+          src={MobileList}
+          alt="Mobile App Screenshot"
+          class="mx-auto rounded-xl shadow-2xl"
+        />
+        <Image
+          src={MobileNote}
+          alt="Mobile Edit Note Screenshot"
+          class="mx-auto rounded-xl shadow-2xl"
+        />
+        <Image
+          src={MobileDetail}
+          alt="Mobile App Detail Screenshot"
+          class="mx-auto rounded-xl shadow-2xl"
+        />
+      </div>
+    </div>
+  </section>
+
+  {/* Offline-First Section */}
+  <section
+    class="py-20 px-6 bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900"
+  >
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-16">
+        <Badge
+          variant="outline"
+          className="mb-4 border-emerald-200 text-emerald-700 dark:border-emerald-800 dark:text-emerald-300"
+        >
+          Offline-First
+        </Badge>
+        <h2
+          class="font-bold text-4xl md:text-5xl text-slate-900 dark:text-white mb-6"
+        >
+          Works without the internet
+        </h2>
+        <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+          Built with offline-first architecture. Your thoughts and ideas are
+          always accessible, whether you're on a plane or in a coffee shop.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <Card
+          className="border-stone-200/60 dark:border-amber-800/30 paper-card card-organic hover:shadow-2xl transition-all duration-300"
+        >
+          <CardHeader className="pb-4">
+            <div
+              class="w-14 h-14 bg-emerald-50 dark:bg-emerald-950 rounded-2xl flex items-center justify-center mb-4"
+            >
+              <WifiOff
+                className="w-7 h-7 text-emerald-600 dark:text-emerald-400"
+              />
+            </div>
+            <CardTitle className="text-xl text-stone-900 dark:text-stone-100"
+              >Offline Everything</CardTitle
+            >
+          </CardHeader>
+          <CardContent>
+            <CardDescription
+              className="text-stone-700 dark:text-stone-300 text-base"
+            >
+              Create, edit, organize, and search your notes without any internet
+              connection. All features work offline.
+            </CardDescription>
+          </CardContent>
+        </Card>
+
+        <Card
+          className="border-stone-200/60 dark:border-amber-800/30 paper-card card-organic hover:shadow-2xl transition-all duration-300"
+        >
+          <CardHeader className="pb-4">
+            <div
+              class="w-14 h-14 bg-blue-50 dark:bg-blue-950 rounded-2xl flex items-center justify-center mb-4"
+            >
+              <Wifi className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+            </div>
+            <CardTitle className="text-xl text-stone-900 dark:text-stone-100"
+              >Smart Sync</CardTitle
+            >
+          </CardHeader>
+          <CardContent>
+            <CardDescription
+              className="text-stone-700 dark:text-stone-300 text-base"
+            >
+              When you're back online, changes sync automatically with
+              intelligent conflict resolution.
+            </CardDescription>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  {/* Features Section */}
+  <section
+    class="py-20 px-6 bg-stone-100/50 dark:bg-stone-900/50 paper-texture"
+  >
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-16">
+        <Badge
+          variant="outline"
+          className="mb-4 border-amber-200 text-amber-800 dark:border-amber-800 dark:text-amber-300 bg-amber-50/50 dark:bg-amber-950/30 card-organic"
+        >
+          Powerful Features
+        </Badge>
+        <h2
+          class="font-bold text-4xl md:text-5xl text-slate-900 dark:text-white mb-6"
+        >
+          Everything you need to manage your information
+        </h2>
+        <p class="text-xl text-stone-700 dark:text-stone-300 max-w-3xl mx-auto">
+          Advanced note-taking and information management features that scale
+          from personal knowledge to team collaboration.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <Card
+          className="border-stone-200/60 dark:border-amber-800/30 paper-card card-organic hover:shadow-2xl transition-all duration-300 group"
+        >
+          <CardHeader className="pb-4">
+            <div
+              class="w-14 h-14 bg-emerald-50 dark:bg-emerald-950/50 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 card-organic"
+            >
+              <Link
+                className="w-7 h-7 text-emerald-700 dark:text-emerald-400"
+              />
+            </div>
+            <CardTitle className="text-xl text-stone-900 dark:text-stone-100"
+              >Linked Notes</CardTitle
+            >
+          </CardHeader>
+          <CardContent>
+            <CardDescription
+              className="text-stone-700 dark:text-stone-300 text-base"
+            >
+              Connect related notes with bidirectional links, references, and
+              custom relationships to build your knowledge graph.
+            </CardDescription>
+          </CardContent>
+        </Card>
+
+        <Card
+          className="border-stone-200/60 dark:border-amber-800/30 paper-card card-organic hover:shadow-2xl transition-all duration-300 group"
+        >
+          <CardHeader className="pb-4">
+            <div
+              class="w-14 h-14 bg-amber-50 dark:bg-amber-950/50 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 card-organic"
+            >
+              <Tags className="w-7 h-7 text-amber-700 dark:text-amber-400" />
+            </div>
+            <CardTitle className="text-xl text-stone-900 dark:text-stone-100"
+              >Smart Organization</CardTitle
+            >
+          </CardHeader>
+          <CardContent>
+            <CardDescription
+              className="text-stone-700 dark:text-stone-300 text-base"
+            >
+              Organize with flexible tags, categories, and custom properties.
+              Filter and search with powerful queries across all your content.
+            </CardDescription>
+          </CardContent>
+        </Card>
+
+        <Card
+          className="border-stone-200/60 dark:border-amber-800/30 paper-card card-organic hover:shadow-2xl transition-all duration-300 group"
+        >
+          <CardHeader className="pb-4">
+            <div
+              class="w-14 h-14 bg-emerald-50 dark:bg-emerald-950 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+            >
+              <UserPlus
+                className="w-7 h-7 text-green-700 dark:text-green-400"
+              />
+            </div>
+            <CardTitle className="text-xl text-stone-900 dark:text-stone-100">
+              Team Collaboration
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription
+              className="text-stone-700 dark:text-stone-300 text-base"
+            >
+              Share notes and knowledge bases with team members, collaborate on
+              documents, and maintain shared information repositories.
+            </CardDescription>
+          </CardContent>
+        </Card>
+
+        <Card
+          className="border-stone-200/60 dark:border-amber-800/30 paper-card card-organic hover:shadow-2xl transition-all duration-300 group"
+        >
+          <CardHeader className="pb-4">
+            <div
+              class="w-14 h-14 bg-orange-50 dark:bg-orange-950 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+            >
+              <Calendar className="w-7 h-7 text-rose-700 dark:text-rose-400" />
+            </div>
+            <CardTitle className="text-xl text-stone-900 dark:text-stone-100"
+              >Rich Content</CardTitle
+            >
+          </CardHeader>
+          <CardContent>
+            <CardDescription
+              className="text-stone-700 dark:text-stone-300 text-base"
+            >
+              Create rich notes with markdown, embed images, tables, code
+              blocks, and other media to capture information exactly as you need
+              it.
+            </CardDescription>
+          </CardContent>
+        </Card>
+
+        <Card
+          className="border-stone-200/60 dark:border-amber-800/30 paper-card card-organic hover:shadow-2xl transition-all duration-300 group"
+        >
+          <CardHeader className="pb-4">
+            <div
+              class="w-14 h-14 bg-rose-50 dark:bg-rose-950 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+            >
+              <Clock className="w-7 h-7 text-orange-700 dark:text-orange-400" />
+            </div>
+            <CardTitle className="text-xl text-stone-900 dark:text-stone-100"
+              >Task Support</CardTitle
+            >
+          </CardHeader>
+          <CardContent>
+            <CardDescription
+              className="text-stone-700 dark:text-stone-300 text-base"
+            >
+              Turn any note into a completable task with due dates, reminders,
+              and progress tracking when you need actionable items.
+            </CardDescription>
+          </CardContent>
+        </Card>
+
+        <Card
+          className="border-stone-200/60 dark:border-amber-800/30 paper-card card-organic hover:shadow-2xl transition-all duration-300 group"
+        >
+          <CardHeader className="pb-4">
+            <div
+              class="w-14 h-14 bg-indigo-50 dark:bg-indigo-950 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+            >
+              <Code
+                className="w-7 h-7 text-emerald-700 dark:text-emerald-400"
+              />
+            </div>
+            <CardTitle className="text-xl text-stone-900 dark:text-stone-100"
+              >Open & Extensible</CardTitle
+            >
+          </CardHeader>
+          <CardContent>
+            <CardDescription
+              className="text-stone-700 dark:text-stone-300 text-base"
+            >
+              API access and open-source codebase. Customize and extend to fit
+              your workflow perfectly.
+            </CardDescription>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  {/* Why Open Source Section */}
+  <section
+    class="py-20 px-6 bg-gradient-to-br from-stone-800 to-amber-900 dark:from-stone-900 dark:to-stone-950 text-stone-50"
+  >
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-16">
+        <Badge
+          variant="secondary"
+          className="mb-4 bg-stone-100/10 text-stone-100 border-stone-200/20 card-organic"
+        >
+          Open Source Forever
+        </Badge>
+        <h2 class="font-bold text-4xl md:text-5xl mb-6">
+          Why choose Kontinue?
+        </h2>
+        <p class="text-xl text-stone-200 max-w-3xl mx-auto">
+          Traditional note-taking apps lock you in. We believe your knowledge
+          management tools should be as free as your ideas.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center group">
+          <div
+            class="w-16 h-16 bg-emerald-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-emerald-500/30 transition-colors duration-300 card-organic"
+          >
+            <Target className="w-8 h-8 text-emerald-300" />
+          </div>
+          <h3 class="font-semibold text-xl mb-4">Own Your Data</h3>
+          <p class="text-stone-200 leading-relaxed">
+            Self-host or use our cloud. Export anytime. Your notes and knowledge
+            belong to you, not us.
+          </p>
+        </div>
+
+        <div class="text-center group">
+          <div
+            class="w-16 h-16 bg-emerald-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-emerald-500/30 transition-colors duration-300 card-organic"
+          >
+            <Layers class="w-8 h-8 text-amber-300" />
+          </div>
+          <h3 class="font-semibold text-xl mb-4">No Vendor Lock-in</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Standard formats, open APIs, and portable data. Switch tools anytime
+            without losing your work.
+          </p>
+        </div>
+
+        <div class="text-center group">
+          <div
+            class="w-16 h-16 bg-green-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-500/30 transition-colors duration-300 card-organic"
+          >
+            <Code className="w-8 h-8 text-green-300" />
+          </div>
+          <h3 class="font-semibold text-xl mb-4">Community Driven</h3>
+          <p class="text-stone-200 leading-relaxed">
+            Built by users, for users. Contribute features, fix bugs, or fork
+            the project to make it yours.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Section */}
+  <section
+    class="py-20 px-6 bg-gradient-to-br from-amber-50 via-stone-50 to-orange-50 dark:from-stone-950 dark:via-amber-950/50 dark:to-stone-950 paper-texture"
+  >
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2
+        class="font-bold text-4xl md:text-5xl text-slate-900 dark:text-white mb-6"
+      >
+        Ready to take control?
+      </h2>
+      <p
+        class="text-xl text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto"
+      >
+        Join our waitlist and be the first to experience the future of
+        open-source personal information management.
+      </p>
+
+      <div
+        class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto mb-8"
+      >
+        <Input
+          type="email"
+          placeholder="Enter your email"
+          className="flex-1 h-14 bg-white dark:bg-slate-950 border-slate-300 dark:border-slate-700 shadow-sm text-lg"
+        />
+        <Button
+          size="lg"
+          className="w-full sm:w-auto h-14 px-8 bg-gradient-to-r from-emerald-700 to-green-800 hover:from-emerald-600 hover:to-green-700 shadow-lg text-lg"
+        >
+          Join the waitlist
+          <ArrowRight className="w-5 h-5 ml-2" />
+        </Button>
+      </div>
+
+      <div
+        class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+      >
+        <a
+          href="https://github.com/getkontinue/kontinue"
+          target="_blank"
+          rel="noopener"
+        >
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
+          >
+            <Github className="w-5 h-5 mr-2" />
+            Star on GitHub
+          </Button>
+        </a>
+      </div>
+
+      <p class="text-sm text-slate-500 dark:text-slate-400">
+        Free forever. Open source forever. Your productivity, your way.
+      </p>
+    </div>
+  </section>
+
+  {/* Footer */}
+  <footer
+    class="border-t border-stone-200/60 dark:border-amber-800/30 paper-card py-16 px-6"
+  >
+    <div class="container mx-auto max-w-6xl">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center space-x-3 mb-6 md:mb-0">
+          <div
+            class="w-10 h-10 bg-gradient-to-br from-stone-900 to-stone-700 rounded-xl flex items-center justify-center shadow-lg"
+          >
+            <Image src={Logo} alt="Logo" />
+          </div>
+          <span
+            class="font-bold text-2xl bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent"
+            >Kontinue</span
+          >
+        </div>
+
+        <div class="flex items-center space-x-6">
+          <a
+            href="https://github.com/getkontinue/kontinue"
+            class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+          >
+            <Github className="w-6 h-6" />
+          </a>
+          <a
+            href="https://x.com/itsbjoern"
+            class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+          >
+            <Twitter className="w-6 h-6" />
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 text-center"
+      >
+        <p class="text-slate-600 dark:text-slate-400 text-lg">
+          <span class="font-semibold text-slate-900 dark:text-white"
+            >Open source, forever.</span
+          >
+          Built by the community, for the community.
+        </p>
+        <div class="flex flex-wrap justify-center gap-8 mt-6 text-sm">
+          <a
+            href="/privacy"
+            class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+            >Privacy Policy</a
+          >
+          <!-- <a
+            href="#"
+            class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+            >Terms of Service</a
+          > -->
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>
-
-<style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
-
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
-	}
-
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
-
-	#hero {
-		display: flex;
-		align-items: start;
-		flex-direction: column;
-		justify-content: center;
-		padding: 16px;
-	}
-
-	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
-
-	#links {
-		display: flex;
-		gap: 16px;
-	}
-
-	#links a {
-		display: flex;
-		align-items: center;
-		padding: 10px 12px;
-		color: #111827;
-		text-decoration: none;
-		transition: color 0.2s;
-	}
-
-	#links a:hover {
-		color: rgb(78, 80, 86);
-	}
-
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
-	}
-
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
-
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
-
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin: 0;
-	}
-
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
-
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
-	}
-
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
-	}
-
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
-
-	#news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
-	}
-
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
-	}
-
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
-
-		#hero {
-			display: block;
-			padding-top: 10%;
-		}
-
-		#links {
-			flex-wrap: wrap;
-		}
-
-		#links a.button {
-			padding: 14px 18px;
-		}
-
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
-		}
-
-		h1 {
-			line-height: 1.5;
-		}
-	}
-</style>

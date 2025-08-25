@@ -1,0 +1,17 @@
+---
+export const prerender = false;
+
+import { db, EmailSignup } from "astro:db";
+
+if (Astro.request.method === "POST") {
+  // Parse form data
+  const formData = await Astro.request.formData();
+  const email = formData.get("email");
+  if (typeof email === "string") {
+    // Insert form data into the EmailSignup table
+    await db.insert(EmailSignup).values({ email });
+  }
+}
+
+return Astro.redirect("/thank-you");
+---

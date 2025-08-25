@@ -1,0 +1,221 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  CheckCircle,
+  Github,
+  Twitter,
+  MessageCircle,
+  ArrowRight,
+  Mail,
+} from "lucide-react";
+import { Image } from "astro:assets";
+import Logo from "../assets/logo/white_alpha/512.png";
+---
+
+<Layout>
+  <div
+    class="min-h-screen bg-gradient-to-br from-stone-50 via-amber-50/30 to-orange-50/20 dark:from-stone-950 dark:via-amber-950/50 dark:to-orange-950/30"
+    style='background-image: url(&apos;data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23f5f5f4" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="1.5"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&apos;)'
+  >
+    <header
+      class="sticky top-0 z-50 w-full border-b border-stone-200/60 dark:border-amber-800/30 bg-stone-50/90 dark:bg-stone-950/90 backdrop-blur-md shadow-sm"
+    >
+      <div
+        class="container mx-auto flex h-16 items-center justify-between px-4"
+      >
+        <a href="/" class="flex items-center space-x-2">
+          <div
+            class="w-10 h-10 bg-gradient-to-br from-stone-900 to-stone-700 rounded-xl flex items-center justify-center shadow-lg shadow-green-900/20"
+          >
+            <Image
+              src={Logo}
+              alt="Kontinue Logo"
+              width={32}
+              height={32}
+              class="rounded-lg"
+            />
+          </div>
+          <span
+            class="text-xl font-bold tracking-tight text-stone-900 dark:text-stone-100"
+          >
+            Kontinue
+          </span>
+        </a>
+        <nav class="hidden md:flex items-center space-x-6">
+          <a
+            href="https://github.com/getkontinue/kontinue"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100 transition-colors"
+          >
+            <Github className="h-5 w-5" />
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    {/* Main Content */}
+    <main class="container mx-auto px-4 py-16 max-w-2xl">
+      <div class="text-center mb-12">
+        <div
+          class="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full mb-6"
+        >
+          <CheckCircle className="h-8 w-8 text-green-600 dark:text-green-400" />
+        </div>
+
+        <h1
+          class="text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 mb-4"
+        >
+          Thank You for Signing Up!
+        </h1>
+
+        <p
+          class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-8"
+        >
+          Welcome to the Kontinue community! We're excited to have you on board
+          as we build the future of personal information management.
+        </p>
+      </div>
+
+      {/* What's Next Card */}
+      <Card
+        className="mb-8 border-stone-200/60 dark:border-stone-800 bg-white/50 dark:bg-stone-900/50 backdrop-blur-sm"
+      >
+        <CardHeader>
+          <CardTitle
+            className="flex items-center gap-2 text-stone-900 dark:text-stone-100"
+          >
+            <Mail className="h-5 w-5 text-amber-600" />
+            What's Next?
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-amber-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-600 dark:text-stone-400">
+              <strong>Check your email</strong> - We'll send you an email once ready
+              for launch.
+            </p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-amber-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-600 dark:text-stone-400">
+              <strong>Join our community</strong> - Follow our development journey
+              and contribute to shaping Kontinue's future.
+            </p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-amber-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-600 dark:text-stone-400">
+              <strong>Be among the first</strong> - You'll get priority access to
+              beta releases and new features as they become available.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
+      <div class="flex gap-4 mb-12 mt-4">
+        <a
+          href="https://github.com/kontinue-ai/kontinue"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex-1"
+        >
+          <Card
+            class="border-stone-200/60 dark:border-stone-800 bg-white/50 dark:bg-stone-900/50 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all duration-300 hover:shadow-lg"
+          >
+            <CardContent class="p-6 text-center">
+              <Github
+                className="h-8 w-8 text-stone-600 dark:text-stone-400 group-hover:text-stone-900 dark:group-hover:text-stone-100 mx-auto mb-3 transition-colors"
+              />
+              <h3 class="font-semibold text-stone-900 dark:text-stone-100 mb-2">
+                GitHub
+              </h3>
+              <p class="text-sm text-stone-600 dark:text-stone-400">
+                Star the repo and follow development
+              </p>
+            </CardContent>
+          </Card>
+        </a>
+
+        <a
+          href="https://twitter.com/itsbjoern"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex-1"
+        >
+          <Card
+            class="border-stone-200/60 dark:border-stone-800 bg-white/50 dark:bg-stone-900/50 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all duration-300 hover:shadow-lg"
+          >
+            <CardContent class="p-6 text-center">
+              <Twitter
+                className="h-8 w-8 text-stone-600 dark:text-stone-400 group-hover:text-stone-900 dark:group-hover:text-stone-100 mx-auto mb-3 transition-colors"
+              />
+              <h3 class="font-semibold text-stone-900 dark:text-stone-100 mb-2">
+                Twitter
+              </h3>
+              <p class="text-sm text-stone-600 dark:text-stone-400">
+                Get the latest updates and news
+              </p>
+            </CardContent>
+          </Card>
+        </a>
+      </div>
+
+      <div class="text-center">
+        <a href="/">
+          <Button
+            className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-medium px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
+          >
+            Back to Home
+            <ArrowRight className="h-4 w-4" />
+          </Button>
+        </a>
+      </div>
+    </main>
+
+    <footer
+      class="border-t border-stone-200/60 dark:border-stone-800 bg-stone-50/50 dark:bg-stone-950/50 backdrop-blur-sm"
+    >
+      <div class="container mx-auto px-4 py-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <div class="flex items-center space-x-2">
+            <Image
+              src={Logo}
+              alt="Kontinue Logo"
+              width={24}
+              height={24}
+              class="rounded-md"
+            />
+            <span class="text-sm text-stone-600 dark:text-stone-400">
+              2025 Kontinue
+            </span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a
+              href="/privacy"
+              class="text-sm text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100 transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="https://github.com/getkontinue/kontinue"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100 transition-colors"
+            >
+              <Github className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</Layout>

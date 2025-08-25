@@ -1,22 +1,61 @@
+---
+import "../styles/global.css";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Kontinue - Your Personal Information Hub</title>
+
+    <meta name="og:title" content="Kontinue - Your Personal Information Hub" />
+    <meta
+      name="og:description"
+      content="The open-source note-taking and information management app that works everywhere you do."
+    />
+    <!-- <meta name="og:image" content={Astro.url.origin + image} /> -->
+    <meta name="og:type" content="website" />
+    <meta name="og:url" content={Astro.url} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={Astro.url} />
+    <meta
+      name="twitter:title"
+      content="Kontinue - Your Personal Information Hub"
+    />
+    <meta
+      name="twitter:description"
+      content="The open-source note-taking and information management app that works everywhere you do."
+    />
+    <meta name="twitter:creator" content="itsbjoern" />
+    <!-- <meta name="twitter:image" content={Astro.url.origin + image} /> -->
+
+    <script
+      defer
+      src="https://a.bjoernf.com/script.js"
+      data-domains="getkontinue.com"
+      data-website-id="e464ca6c-2cf3-4def-af49-498b9985ad97"></script>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  @font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
