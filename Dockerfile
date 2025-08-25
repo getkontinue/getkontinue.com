@@ -16,6 +16,7 @@ RUN bun install --frozen-lockfile
 # Copy source code
 COPY . .
 
+RUN mkdir /data && touch /data/local.db
 ENV ASTRO_DATABASE_FILE="file:/data/local.db"
 
 # Build the project
@@ -31,12 +32,11 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 astro && \
     adduser --system --uid 1001 astro
 
-RUN mkdir /data && touch /data/local.db
-RUN chown -R astro:astro /data
 
 # Copy built application
 COPY --from=builder --chown=astro:astro /app/node_modules ./node_modules
 COPY --from=builder --chown=astro:astro /app/dist ./dist
+COPY --from=builder --chown=astro:astro /data /data
 
 # Switch to non-root user
 USER astro
