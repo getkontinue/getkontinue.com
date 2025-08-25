@@ -25,7 +25,7 @@ jobs:
           aws-region: eu-west-2
 
       - name: Sync to S3
-        working-directory: dist
+        working-directory: dist/client
         run: aws s3 sync . ${{ secrets.BUCKET_URI }} --delete
 
       - name: Invalidate cache from CF
