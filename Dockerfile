@@ -25,13 +25,12 @@ RUN apk --no-cache add curl
 
 WORKDIR /app
 
-ENV ASTRO_DB_REMOTE_URL="file:/data/local.db"
-RUN mkdir /data && touch /data/local.db
-
 # Create non-root user
 RUN addgroup --system --gid 1001 astro && \
     adduser --system --uid 1001 astro
 
+ENV ASTRO_DB_REMOTE_URL="file:/data/local.db"
+RUN mkdir /data && touch /data/local.db
 RUN chown -R astro:astro /data
 
 # Copy built application
