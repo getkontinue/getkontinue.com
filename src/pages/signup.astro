@@ -13,7 +13,19 @@ if (Astro.request.method === "POST") {
   }
 }
 
-return Astro.redirect(
-  import.meta.env.DEV ? "/thank-you" : "https://getkontinue.com/thank-you",
-);
+if (import.meta.env.DEV) {
+  return Astro.redirect("/thank-you");
+} else {
+  return new Response(
+    "Moved Permanently. Redirecting to https://getkontinue.com/thank-you",
+    {
+      status: 301,
+      statusText: "Moved Permanently",
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        Location: "https://getkontinue.com/thank-you",
+      },
+    },
+  );
+}
 ---
