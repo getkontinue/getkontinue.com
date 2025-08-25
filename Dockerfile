@@ -16,6 +16,8 @@ RUN bun install --frozen-lockfile
 # Copy source code
 COPY . .
 
+ENV ASTRO_DATABASE_FILE="file:/data/local.db"
+
 # Build the project
 RUN bun run build
 
@@ -29,7 +31,6 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 astro && \
     adduser --system --uid 1001 astro
 
-ENV ASTRO_DATABASE_FILE="file:/data/local.db"
 RUN mkdir /data && touch /data/local.db
 RUN chown -R astro:astro /data
 
