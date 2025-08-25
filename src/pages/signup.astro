@@ -13,5 +13,6 @@ if (Astro.request.method === "POST") {
   }
 }
 
-return Astro.redirect("/thank-you");
+const returnUrl = Astro.request.headers.get("referer") || "/";
+return Astro.redirect(returnUrl);
 ---
