@@ -15,6 +15,7 @@ export default defineConfig({
   },
 
   integrations: [react(), db()],
+  site: "https://waitlist.getkontinue.com", // For processing the waitlist action
 
   adapter: node({
     mode: "standalone",
