@@ -39,7 +39,8 @@ USER astro
 # Expose port
 EXPOSE 4321
 
-ENV ASTRO_DB_REMOTE_URL="file:local.db"
+ENV ASTRO_DB_REMOTE_URL="file:/data/local.db"
+RUN touch /data/local.db
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
