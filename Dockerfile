@@ -25,9 +25,14 @@ RUN apk --no-cache add curl
 
 WORKDIR /app
 
+ENV ASTRO_DB_REMOTE_URL="file:/data/local.db"
+RUN mkdir /data && touch /data/local.db
+
 # Create non-root user
 RUN addgroup --system --gid 1001 astro && \
     adduser --system --uid 1001 astro
+
+RUN chown -R astro:astro /data
 
 # Copy built application
 COPY --from=builder --chown=astro:astro /app/node_modules ./node_modules
@@ -38,9 +43,6 @@ USER astro
 
 # Expose port
 EXPOSE 4321
-
-ENV ASTRO_DB_REMOTE_URL="file:/data/local.db"
-RUN mkdir /data && touch /data/local.db
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
