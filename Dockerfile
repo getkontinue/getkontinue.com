@@ -21,6 +21,7 @@ RUN bun run build --remote
 
 # Production stage
 FROM node:20-alpine AS runner
+RUN apk --no-cache add curl
 
 WORKDIR /app
 
