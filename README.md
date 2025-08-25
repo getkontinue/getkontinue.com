@@ -7,4 +7,4 @@ The official landing page for Kontinue - an open-source alternative to Notion an
 
 ## Deployment
 
-Requires `ASTRO_DB_REMOTE_URL` to be set to a local `file://` URL pointing to the database file.
+Requires `ASTRO_DATABASE_FILE` to be set to a local `file:` schema pointing to the database file.

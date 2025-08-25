@@ -17,7 +17,7 @@ RUN bun install --frozen-lockfile
 COPY . .
 
 # Build the project
-RUN bun run build --remote
+RUN bun run build
 
 # Production stage
 FROM node:20-alpine AS runner
@@ -29,7 +29,7 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 astro && \
     adduser --system --uid 1001 astro
 
-ENV ASTRO_DB_REMOTE_URL="file:/data/local.db"
+ENV ASTRO_DATABASE_FILE="file:/data/local.db"
 RUN mkdir /data && touch /data/local.db
 RUN chown -R astro:astro /data
 
